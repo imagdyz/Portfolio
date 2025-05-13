@@ -3,9 +3,16 @@
     --bg-color: #1f242d;
     --second-bg-color: #323946;
     --text-color: #fff;
-    --main-color: #0ef;
+    --main-color: #4a90e2;
     --transition: all 0.3s ease;
     --box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] {
+    --bg-color: #e8e8e8;
+    --second-bg-color: #d1d1d1;
+    --text-color: #000000;
+    --box-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
 }
 
 /* ===== RESET & BASE STYLES ===== */
@@ -551,4 +558,33 @@ span {
     input {
         font-size: 16px;
     }
+}
+
+/* ===== THEME TOGGLE ===== */
+.theme-toggle {
+    font-size: 2.4rem;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: var(--transition);
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background: var(--second-bg-color);
+}
+
+.theme-toggle:hover {
+    color: var(--main-color);
+    transform: scale(1.1);
+}
+
+.theme-toggle i {
+    transition: var(--transition);
+}
+
+[data-theme="light"] .theme-toggle i {
+    transform: rotate(180deg);
 }

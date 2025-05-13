@@ -120,4 +120,28 @@ contactForm.addEventListener('submit', async function(e) {
     }
 });
 
+// Theme Toggle
+const themeToggle = document.querySelector('.theme-toggle');
+const themeIcon = themeToggle.querySelector('i');
+
+// Check for saved theme preference
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+}
+
+themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon(newTheme);
+});
+
+function updateThemeIcon(theme) {
+    themeIcon.className = theme === 'light' ? 'bx bxs-sun' : 'bx bxs-moon';
+}
+
 
